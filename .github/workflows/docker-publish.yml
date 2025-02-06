@@ -40,7 +40,7 @@ jobs:
         
 
       - name: Verify Docker image
-        run: docker pull ghcr.io/${{ github.repository }}:latest
+        run: docker pull ghcr.io/${{ env.LOWER_USER }}/${{ env.LOWER_REPO }}:latest
 
       - name: Logout from GitHub Container Registry
         run: docker logout ghcr.io
