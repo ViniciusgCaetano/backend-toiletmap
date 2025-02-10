@@ -5,8 +5,8 @@ from sqlalchemy.orm import sessionmaker
 def test_create_bathroom(test_db):
     SQLALCHEMY_DATABASE_URL = "sqlite:///./test.db"
     engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
-    TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-    db = TestingSessionLocal()
+    local_session = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+    db = local_session()
     bathroom = Banheiro(
         latitude=40.7128,
         longitude=-74.0060,
